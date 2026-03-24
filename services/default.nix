@@ -1,6 +1,6 @@
 {
   imports = [
-    ./adguard.nix
+    ./adguardhome.nix
     ./nginx.nix
   ];
 }
