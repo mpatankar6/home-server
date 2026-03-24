@@ -64,3 +64,13 @@ services:
     volumes:
       - /home/mihir/home-server/prowlarr-config:/config
     restart: unless-stopped
+
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    environment:
+      - LOG_LEVEL=info
+      - TZ=America/New_York
+    ports:
+      - 8191:8191
+    restart: unless-stopped
