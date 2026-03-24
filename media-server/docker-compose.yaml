@@ -33,7 +33,7 @@ services:
       - 8989:8989
     volumes:
       - /var/lib/sonarr/data:/config
-      - /srv/media/shows:/tv
+      - /srv/media/tv:/tv
       - /srv/media/downloads:/downloads
     restart: unless-stopped
 
