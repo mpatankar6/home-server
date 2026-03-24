@@ -23,7 +23,7 @@ services.logind.settings.Login.HandleLidSwitch = "ignore";
 	programs.fish = {
 enable = true;
 interactiveShellInit = "set -g fish_greeting";
-}
+};
 
   users.users.mihir = {
     isNormalUser = true;
