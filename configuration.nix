@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./adguardhome.nix
+    ./services
     ./hardware-configuration.nix
   ];
   nix.settings.experimental-features = [
