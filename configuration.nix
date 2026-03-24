@@ -29,6 +29,7 @@
     extraGroups = [ "wheel" ];
     shell = pkgs.fish;
     packages = with pkgs; [
+      dig
       fastfetch
       gh
       git
