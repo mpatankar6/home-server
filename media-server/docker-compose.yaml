@@ -28,6 +28,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - TZ=America/New_York
     ports:
       - 8989:8989
     volumes:
@@ -42,10 +43,24 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - TZ=America/New_York
     ports:
       - 7878:7878
     volumes:
       - /var/lib/radarr/data:/config
       - /srv/media/movies:/movies
       - /srv/media/downloads:/downloads
+    restart: unless-stopped
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    ports:
+      - 9696:9696
+    volumes:
+      - /home/mihir/home-server/prowlarr-config:/config
     restart: unless-stopped
