@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./adguardhome.nix
+    ./hardware-configuration.nix
+  ];
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -16,35 +16,28 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
+  services.openssh.enable = true;
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
 
-
-services.logind.settings.Login.HandleLidSwitch = "ignore";
-
-	programs.fish = {
-enable = true;
-interactiveShellInit = "set -g fish_greeting";
-};
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = "set -g fish_greeting";
+  };
 
   users.users.mihir = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.fish;
+    packages = with pkgs; [
+      fastfetch
+      gh
+      git
+      lsof
+      vim
+    ];
   };
 
-
-  environment.systemPackages = with pkgs; [
-fastfetch
-	vim 
-	gh
-	git
-  ];
-
-   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  security.sudo.wheelNeedsPassword = false;
   time.timeZone = "America/New_York";
   system.stateVersion = "25.11";
-
 }
