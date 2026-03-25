@@ -1,7 +1,3 @@
-let
-  # Assuming there is a static DHCP lease, this should never change.
-  local-ip = "192.168.1.90";
-in
 {
   services.adguardhome = {
     enable = true;
@@ -11,13 +7,18 @@ in
           "1.1.1.1"
           "1.0.0.1"
         ];
-        rewrites = [
-          {
-            domain = "adguard.home";
-            answer = local-ip;
-          }
-        ];
       };
+      filtering.rewrites =
+        map
+          (domain: {
+            inherit domain;
+            # Assuming there is a static DHCP lease, this should never change.
+            answer = "192.168.1.90";
+            enabled = true;
+          })
+          [
+            "adguard.home.arpa"
+          ];
     };
   };
   networking.firewall = {
