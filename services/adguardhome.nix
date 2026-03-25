@@ -5,7 +5,6 @@ in
 {
   services.adguardhome = {
     enable = true;
-    openFirewall = true;
     settings = {
       dns = {
         upstream_dns = [
@@ -20,5 +19,9 @@ in
         ];
       };
     };
+  };
+  networking.firewall = {
+    allowedTCPPorts = [ 53 ];
+    allowedUDPPorts = [ 53 ];
   };
 }
