@@ -10,17 +10,26 @@
       "nix-command"
       "flakes"
     ];
-    trusted-users = [ "root" "mihir" ];
+    trusted-users = [
+      "root"
+      "mihir"
+    ];
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
+  };
 
-  networking.hostName = "nixos-server";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos-server";
+    networkmanager.enable = true;
+  };
 
-  services.openssh.enable = true;
-  services.logind.settings.Login.HandleLidSwitch = "ignore";
+  services = {
+    logind.settings.Login.HandleLidSwitch = "ignore";
+    openssh.enable = true;
+  };
 
   programs.fish = {
     enable = true;
