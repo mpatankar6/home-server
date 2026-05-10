@@ -1,10 +1,9 @@
 {
   services.caddy = {
     enable = true;
-    virtualHosts."adguard.home.arpa" = {
+    virtualHosts."http://adguard.home.arpa" = {
       extraConfig = ''
         reverse_proxy localhost:3000
-        tls internal
       '';
     };
   };
