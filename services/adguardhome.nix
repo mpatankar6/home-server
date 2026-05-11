@@ -18,6 +18,13 @@
           })
           [
             "adguard.home.arpa"
+            "transmission.home.arpa"
+            "prowlarr.home.arpa"
+            "radarr.home.arpa"
+            "sonarr.home.arpa"
+            "bazarr.home.arpa"
+            "jellyfin.home.arpa"
+            "seerr.home.arpa"
           ];
     };
   };
