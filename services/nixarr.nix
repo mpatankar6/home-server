@@ -31,7 +31,6 @@
               password.secret = "/data/.secret/cinemaz-password";
               pid.secret = "/data/.secret/cinemaz-pid";
             };
-            # enable = true;
           }
         ];
       };
