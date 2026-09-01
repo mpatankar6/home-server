@@ -36,6 +36,20 @@
     interactiveShellInit = "set -g fish_greeting";
   };
 
+  # Limit battery charge so it doesn't blow up
+  systemd.services.battery-charge-threshold = {
+    description = "Cap battery charge at 60%";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = pkgs.writeShellScript "battery-charge-threshold" ''
+        echo 50 > /sys/class/power_supply/BAT0/charge_control_start_threshold
+        echo 60 > /sys/class/power_supply/BAT0/charge_control_end_threshold
+      '';
+    };
+  };
+
   users.users.mihir = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
