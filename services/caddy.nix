@@ -16,7 +16,6 @@ in
       "http://sonarr.home.arpa" = mkProxy 8989;
       "http://bazarr.home.arpa" = mkProxy 6767;
       "http://jellyfin.home.arpa" = mkProxy 8096;
-      "http://seerr.home.arpa" = mkProxy 5055;
     };
   };
   networking.firewall.allowedTCPPorts = [

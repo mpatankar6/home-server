@@ -8,7 +8,6 @@
     stateDir = "/data/media/.state/nixarr";
 
     jellyfin.enable = true;
-    seerr.enable = true;
 
     transmission = {
       enable = true;

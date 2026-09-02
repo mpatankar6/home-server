@@ -24,7 +24,6 @@
             "sonarr.home.arpa"
             "bazarr.home.arpa"
             "jellyfin.home.arpa"
-            "seerr.home.arpa"
           ];
     };
   };
