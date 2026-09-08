@@ -50,6 +50,16 @@
     };
   };
 
+  # Repo for syncing org files across machines
+  # Use `git clone mihir@192.168.1.90:/srv/git/org.git ~/Documents/org`
+  systemd.tmpfiles.rules = [ "d /srv/git 0755 mihir users -" ];
+  system.activationScripts.orgGitRepo = ''
+    if [ ! -e /srv/git/org.git ]; then
+      ${pkgs.git}/bin/git init --bare -b main /srv/git/org.git
+      chown -R mihir:users /srv/git/org.git
+    fi
+  '';
+
   users.users.mihir = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
