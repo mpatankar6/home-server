@@ -14,7 +14,6 @@ in
       "http://prowlarr.home.arpa" = mkProxy 9696;
       "http://radarr.home.arpa" = mkProxy 7878;
       "http://sonarr.home.arpa" = mkProxy 8989;
-      "http://bazarr.home.arpa" = mkProxy 6767;
       "http://jellyfin.home.arpa" = mkProxy 8096;
     };
   };

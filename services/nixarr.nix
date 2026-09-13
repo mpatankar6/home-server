@@ -48,20 +48,5 @@
         transmission.enable = true;
       };
     };
-
-    bazarr = {
-      enable = true;
-      settings-sync = {
-        sonarr.enable = true;
-        sonarr.config = {
-          sync_only_monitored_series = true;
-          sync_only_monitored_episodes = true;
-        };
-        radarr.enable = true;
-        radarr.config = {
-          sync_only_monitored_movies = true;
-        };
-      };
-    };
   };
 }
