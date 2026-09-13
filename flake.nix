@@ -1,7 +1,7 @@
 {
   description = "Home Server Flake";
   inputs = {
-    nixpkgs.url = "github:Nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:Nixos/nixpkgs/nixos-26.05";
     nixarr.url = "github:nix-media-server/nixarr";
   };
   outputs =
